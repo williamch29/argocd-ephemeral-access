@@ -1,0 +1,16 @@
+apiVersion: ephemeral-access.argoproj-labs.io/v1alpha1
+kind: RoleTemplate
+metadata:
+  labels:
+    app.kubernetes.io/name: argocd-ephemeral-access
+    app.kubernetes.io/managed-by: kustomize
+  name: devops
+spec:
+  description: write permission in application {{.application}}
+  name: devops
+  policies:
+  - p, {{.role}}, applications, sync, {{.project}}/{{.application}}, allow
+  - p, {{.role}}, applications, get, {{.project}}/{{.application}}, deny
+  - p, {{.role}}, applications, action/*, {{.project}}/{{.application}}, allow
+  - p, {{.role}}, applications, delete/*/Pod/*, {{.project}}/{{.application}}, allow
+  - p, {{.role}}, logs, get, {{.project}}/{{.namespace}}/{{.application}}, allow

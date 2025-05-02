@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "outDir": "./dist",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "target": "es5",
+    "jsx": "react",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "noUnusedLocals": true,
+    "declaration": false,
+    "allowSyntheticDefaultImports": true,
+    "lib": ["es2017", "dom"],
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "preserveSymlinks": false,
+    "paths": {
+      "@ui/*": ["./src/*"],
+    }
+  },
+  "include": ["./**/*"],
+  "exclude": ["node_modules"]
+}

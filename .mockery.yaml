@@ -1,0 +1,25 @@
+# mockery configuration docs for the version used by this project
+# https://vektra.github.io/mockery/v2.45/configuration/
+with-expecter: true
+dir: 'test/mocks'
+outpkg: 'mocks'
+packages:
+  github.com/marriedcapita/argocd-ephemeral-access/internal/controller:
+    interfaces:
+      K8sClient:
+  github.com/marriedcapita/argocd-ephemeral-access/internal/controller/config:
+    interfaces:
+      Configurer:
+  github.com/marriedcapita/argocd-ephemeral-access/pkg/plugin:
+    interfaces:
+      AccessRequester:
+  github.com/marriedcapita/argocd-ephemeral-access/pkg/log:
+    interfaces:
+      Logger:
+  github.com/marriedcapita/argocd-ephemeral-access/internal/backend:
+    interfaces:
+      Service:
+      Persister:
+  sigs.k8s.io/controller-runtime/pkg/client:
+    interfaces:
+      SubResourceWriter:
